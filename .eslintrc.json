@@ -130,6 +130,7 @@
         ],
         "sonarjs/no-inverted-boolean-check": [
             "error"
-        ]
+        ],
+        "class-methods-use-this": ["disable"]
     }
 }

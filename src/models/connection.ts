@@ -1,10 +1,13 @@
-import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
 const passw = process.env.MONGODB_PASS as string;
+const dbName = 'todolist';
 const DB_CONNECTION = `mongodb+srv://todolistadmin:${
-  passw}@todolist.auenj.mongodb.net/todolist?retryWrites=true&w=majority`;
+  passw}@todolist.auenj.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 
-export default MongoClient.connect(DB_CONNECTION);
+mongoose.connect(DB_CONNECTION);
+
+export default mongoose;
