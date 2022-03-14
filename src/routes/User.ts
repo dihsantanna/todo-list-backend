@@ -18,4 +18,14 @@ route.get(
   userController.prototype.getById,
 );
 
+route.delete(
+  '/:id',
+  userController.prototype.delete,
+);
+
+route.put(
+  '/:id',
+  userController.prototype.getById,
+);
+
 export default route;
