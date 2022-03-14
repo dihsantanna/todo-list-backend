@@ -9,26 +9,26 @@ const Model = connection.model<IUserInfo>('User', userSchema);
 
 export default class User implements IUserModel { 
   
-  public async create({ name, password, email }: IAuthUser) {
+  async create({ name, password, email }: IAuthUser) {
     const newUser = await Model.create({ name, password, email });
     const id = newUser._id;
     const payload: ILoggedInUser = { _id: id, name, email };
     return jwt.sign(payload, secret, { expiresIn: '7d' });
   }
 
-  public async getAll() {
-    return await Model.find({}, {_id: 1, name: 1, email: 1, password: 0});
+  async getAll() {
+    return await Model.find().select(['_id', 'name', 'email']);
   }
 
-  public async getById(id: string) {
-    return await Model.findById(id, {_id: 1, name: 1, email: 1, password: 0});
+  async getById(id: string) {
+    return await Model.findById(id).select(['_id', 'name', 'email']);
   }
 
-  public async delete(id: string) {
+  async delete(id: string) {
     await Model.deleteOne({_id: id})
   }
 
-  public async update(id: string, {name, password, email}: IAuthUser) {
+  async update(id: string, {name, password, email}: IAuthUser) {
     await Model.updateOne({_id: id}, {name, password, email});
   }
 }
