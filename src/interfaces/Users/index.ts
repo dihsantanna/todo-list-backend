@@ -3,6 +3,7 @@ import IAuthUser from './IAuthUser';
 import IUser from './IUser';
 import IUserInfo from './IUserInfo';
 import ILoggedInUser from './ILoggedInUser';
+import IUserModel from './IUserModel';
 
 export {
   IAuth,
@@ -10,4 +11,5 @@ export {
   IUser,
   IUserInfo,
   ILoggedInUser,
+  IUserModel,
 };
