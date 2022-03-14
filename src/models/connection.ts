@@ -5,9 +5,9 @@ dotenv.config();
 
 const passw = process.env.MONGODB_PASS as string;
 const dbName = 'todolist';
-const DB_CONNECTION = `mongodb+srv://todolistadmin:${
+const DB_URL = `mongodb+srv://todolistadmin:${
   passw}@todolist.auenj.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 
-mongoose.connect(DB_CONNECTION);
+mongoose.connect(DB_URL);
 
 export default mongoose;
