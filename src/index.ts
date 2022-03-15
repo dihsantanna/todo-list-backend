@@ -1,6 +1,7 @@
 import app from './app';
 import * as routes from './routes';
 import dotenv from 'dotenv';
+import handlerError from './middlewares/handlerError';
 
 dotenv.config();
 
@@ -13,3 +14,5 @@ app.listen(port, () => {
 app.use('/users', routes.users);
 
 app.use('/tasks', routes.tasks);
+
+app.use(handlerError);

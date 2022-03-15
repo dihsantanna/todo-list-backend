@@ -1,4 +1,4 @@
-import * as msgs from '../../environments/User';
+import * as msgs from '../../environments/MSGS';
 import { IAuthUser } from '../../interfaces/Users';
 import userModel from '../../models/Users';
 import code from '../../environments/Status_Code';

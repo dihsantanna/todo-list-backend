@@ -1,6 +1,4 @@
 import { Request, Response } from 'express';
-import { IAuthUser } from '../../interfaces/Users';
-import IStatusAndResult from '../IStatusAndResult';
 
 interface IUserController {
   create(req: Request, res: Response): Promise<void>;

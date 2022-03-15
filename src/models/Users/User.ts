@@ -29,6 +29,6 @@ export default class User implements IUserModel {
   }
 
   async update(id: string, {name, password, email}: IAuthUser) {
-    await Model.updateOne({_id: id}, {name, password, email});
+    await Model.updateOne({ _id: id }, { name, password, email });
   }
 }

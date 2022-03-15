@@ -1,31 +1,40 @@
 import { Router } from 'express';
 import userController from '../controllers/Users'
+import userValidate from '../validations/Users';
+import tokenValidate from '../validations/Token';
+import rescue from 'express-rescue';
 
 const route = Router();
 
 route.post(
   '/',
-  userController.prototype.create,
+  userValidate,
+  rescue(userController.prototype.create),
 );
 
 route.get(
   '/',
-  userController.prototype.getAll,
+  tokenValidate,
+  rescue(userController.prototype.getAll),
 );
 
 route.get(
   '/:id',
-  userController.prototype.getById,
+  tokenValidate,
+  rescue(userController.prototype.getById),
 );
 
 route.delete(
   '/:id',
-  userController.prototype.delete,
+  tokenValidate,
+  rescue(userController.prototype.delete),
 );
 
 route.put(
   '/:id',
-  userController.prototype.getById,
+  tokenValidate,
+  userValidate,
+  rescue(userController.prototype.update),
 );
 
 export default route;

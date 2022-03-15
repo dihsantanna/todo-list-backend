@@ -1,8 +1,7 @@
-import { Schema } from 'mongoose';
 import IUser from './IUser';
 
 interface ILoggedInUser extends IUser {
-  _id: Schema.Types.ObjectId;
+  _id: string;
 }
 
 export default ILoggedInUser;
